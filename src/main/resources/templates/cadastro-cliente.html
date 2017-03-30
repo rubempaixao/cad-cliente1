@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Cadastro de Cliente</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img alt="Algaworks" src="/images/logo-gray.png" />
+				</a>
+			</div><!-- navbar-header -->
+		</div><!-- container-fluid -->
+	</nav>
+	
+	<form class="form-horizontal" method="POST" action="/clientes">
+		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}">Título salvo com sucesso!!!</span>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="panel-title">Novo cliente</h1>
+			</div><!-- panel-heading -->
+						
+			<div class="panel-body">
+				<div class="form-group">
+					<!-- o FOR="NOME" no label serve para quando clicar no NOME 
+					lá na tela ele já ir direto para o campo correspondente através do ID="NOME" -->
+					<label for="nome" class="col-sm-2 control-label">Nome</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="nome" name="nome"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="dataNascimento" class="col-sm-2 control-label">Data de nascimento</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="dataNascimento" name="dataNascimento"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="status" class="col-sm-2 control-label">Sexo</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="sexo">
+							<option value="MASCULINO">Masculino</option>
+							<option value="FEMININO">Feminino</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+					</div>
+				</div>
+			</div><!-- panel-body -->
+		</div><!-- panel-default -->
+	</form>
+
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
